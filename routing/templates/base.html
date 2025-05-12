@@ -1,25 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}My Website{% endblock %}</title>
+    <title>{% block title %}Chat App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>My Website Header</h1>
-        <nav>
-            <a href="/">Home</a> | <a href="/about">About</a>
-        </nav>
-    </header>
-
+    {% include 'nav.html' %}
     <main>
-        {% block content %}
-        <!-- Default content -->
-        {% endblock %}
+        {% block content %}{% endblock %}
     </main>
-
     <footer>
-        <p>© 2025 My Website</p>
-    </footer>
+    <p>&copy; 2025 My ChatBot App. Built with Flask for practice.</p>
+</footer>
 </body>
 </html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}LLaMA Chat{% endblock %}
+
+{% block content %}
+<section class="chat-section llama">
+    <h2>LLaMA API Chat</h2>
+    <div class="chat-timeline">
+        {% for msg in chat_history %}
+            <div class="timeline-entry {{ msg.type }}">
+                <p>{{ msg.text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <form method="POST" action="{{ url_for('llama') }}">
+        <input type="text" name="user_input" placeholder="Ask LLaMA something..." required>
+        <button type="submit">Go</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,37 @@
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #1d3557;
+    padding: 10px;
+    margin: 0;
+}
+nav li {
+    margin: 0 15px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+footer {
+    text-align: center;
+    background-color: #1d3557;
+    color: white;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+.chat-section {
+    padding: 20px;
+}
+.gemini .chat-box,
+.openai .chat-box-alt,
+.llama .chat-timeline {
+    background: #f1faee;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 300px;
+    margin-bottom: 10px;
+}

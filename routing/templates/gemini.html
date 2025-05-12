@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Gemini Chat{% endblock %}
+
+{% block content %}
+<section class="chat-section gemini">
+    <h2>Gemini API Chat</h2>
+    <div class="chat-box">
+        {% for msg in chat_history %}
+            <div class="message {{ msg.type }}">
+                <p>{{ msg.text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <form method="POST" action="{{ url_for('gemini') }}">
+        <input type="text" name="user_input" placeholder="Talk to Gemini..." required>
+        <button type="submit">Send</button>
+    </form>
+</section>
+{% endblock %}

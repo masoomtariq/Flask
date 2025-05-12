@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box">
+            {% if messages %}
+                {% for msg in messages %}
+                    <div class="message {{ msg.type }}">
+                        <p>{{ msg.text }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <form method="POST" action="/" class="input-form">
+            <input type="text" name="user_input" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
