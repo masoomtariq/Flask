@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-google_key = "AIzaSyBDyGNT3OrQMfI8SfH9q0LsyikQgqihqWg"
+google_key = ""
 
 google = ChatGoogleGenerativeAI(model = "learnlm-1.5-pro-experimental", api_key=google_key, temperature=0)
 
