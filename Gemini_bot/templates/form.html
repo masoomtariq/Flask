@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Masoom's Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>My Chatbot using Flask</h1>
+    <form method="POST">
+        <label for="message">Your Message:</label>
+        <input type="text" id="message" name="message" required>
+        <button type="submit">Send</button>
+    </form>
+
+    {% if bot_reply %}
+        <div class="response">
+            <h2>Bot Reply:</h2>
+            <p>{{ bot_reply }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
