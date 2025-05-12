@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 
+from dotenv import load_dotenv
+import os
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-google_key = ""
+google_key = os.getenv("GOOGLE_API_KEY")
 
 google = ChatGoogleGenerativeAI(model = "learnlm-1.5-pro-experimental", api_key=google_key, temperature=0)
 
