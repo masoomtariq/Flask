@@ -12,7 +12,7 @@ google = ChatGoogleGenerativeAI(model = "learnlm-1.5-pro-experimental", api_key=
 app = Flask(__name__)
 
 @app.route('/')
-def chatbot():-
+def chatbot():
     return render_template('new.html')
 
 @app.route('/get_response', methods=['POST'])
