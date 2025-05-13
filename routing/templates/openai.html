@@ -12,8 +12,8 @@
             </div>
         {% endfor %}
     </div>
-    <form method="POST" action="{{ url_for('openai') }}">
-        <textarea name="user_input" rows="2" placeholder="Type to OpenAI..."></textarea>
+    <form method="POST" action="{{ url_for('openai') }}" class="input-form">
+        <input name="user_input" placeholder="Type to OpenAI..."></input>
         <button type="submit">➤</button>
     </form>
 </section>

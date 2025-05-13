@@ -3,16 +3,16 @@
 {% block title %}LLaMA Chat{% endblock %}
 
 {% block content %}
-<section class="chat-section llama">
+<section class="chat-container llama">
     <h2>LLaMA API Chat</h2>
     <div class="chat-timeline">
         {% for msg in chat_history %}
-            <div class="timeline-entry {{ msg.type }}">
+            <div class="message {{ msg.type }}">
                 <p>{{ msg.text }}</p>
             </div>
         {% endfor %}
     </div>
-    <form method="POST" action="{{ url_for('llama') }}">
+    <form method="POST" action="{{ url_for('llama') }}" class="input-form">
         <input type="text" name="user_input" placeholder="Ask LLaMA something..." required>
         <button type="submit">Go</button>
     </form>

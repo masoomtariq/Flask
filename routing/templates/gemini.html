@@ -3,7 +3,7 @@
 {% block title %}Gemini Chat{% endblock %}
 
 {% block content %}
-<section class="chat-section gemini">
+<section class="chat-container gemini">
     <h2>Gemini API Chat</h2>
     <div class="chat-box">
         {% for msg in chat_history %}
@@ -12,7 +12,7 @@
             </div>
         {% endfor %}
     </div>
-    <form method="POST" action="{{ url_for('gemini') }}">
+    <form method="POST" action="{{ url_for('gemini') }}" class="input-form">
         <input type="text" name="user_input" placeholder="Talk to Gemini..." required>
         <button type="submit">Send</button>
     </form>
