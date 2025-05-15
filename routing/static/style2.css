@@ -17,7 +17,7 @@ nav a {
 
 
 .gemini .chat-box,
-.openai .chat-box-alt,
+.deepseek .chat-box-alt,
 .llama .chat-timeline {
     padding: 20px;
     flex-grow: 1;
@@ -29,7 +29,8 @@ nav a {
 }
 
 .llama .chat-container,
-.gemini .chat-container {
+.gemini .chat-container
+.deepseek .chat-container {
     background: #f1faee;
     width: 100%;
     height: 100%;

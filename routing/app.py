@@ -37,7 +37,7 @@ def gemini():
         chat_history.append({'type': 'bot', 'text': f"Gemini Said: {bot_response}"})
     return render_template('gemini.html', chat_history=chat_history)
 
-@app.route('/openai', methods=['GET', 'POST'])
+@app.route('/deepseek', methods=['GET', 'POST'])
 def openai():
 
     if request.method == 'POST':
@@ -45,8 +45,8 @@ def openai():
         chat_history.append({'type': 'user', 'text': user_input})
 
         bot_response = deepseek.invoke(user_input).content
-        chat_history.append({'type': 'bot', 'text': f"OpenAI said: {bot_response}"})
-    return render_template('openai.html', chat_history=chat_history)
+        chat_history.append({'type': 'bot', 'text': f"DeepSeek said: {bot_response}"})
+    return render_template('deepseek.html', chat_history=chat_history)
 
 @app.route('/llama', methods=['GET', 'POST'])
 def llama():

@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}OpenAI Chat{% endblock %}
+{% block title %}DeepSeek Chat{% endblock %}
 
 {% block content %}
-<section class="chat-section openai">
-    <h2>OpenAI API Chat</h2>
+<section class="chat-container deepseek">
+    <h2>DeepSeek API Chat</h2>
     <div class="chat-box-alt">
         {% for msg in chat_history %}
             <div class="{{ 'user-bubble' if msg.type == 'user' else 'bot-bubble' }}">
@@ -12,8 +12,8 @@
             </div>
         {% endfor %}
     </div>
-    <form method="POST" action="{{ url_for('openai') }}" class="input-form">
-        <input name="user_input" placeholder="Type to OpenAI..."></input>
+    <form method="POST" action="{{ url_for('deepseek') }}" class="input-form">
+        <input name="user_input" placeholder="Type to DeepSeek..."></input>
         <button type="submit">➤</button>
     </form>
 </section>
