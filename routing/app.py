@@ -10,9 +10,9 @@ load_dotenv()
 google_key = os.getenv("GOOGLE_API_KEY")
 groq_key = os.getenv("GROQ_API_KEY")
 
-google = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", api_key=google_key, temperature=0)
-deepseek = ChatGroq(api_key=groq_key, temperature=0, model="deepseek-r1-distill-llama-70b")
-llama = ChatGroq(api_key=groq_key, temperature=0, model="meta-llama/llama-4-scout-17b-16e-instruct")
+google_bot = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", api_key=google_key, temperature=0)
+deep_bot = ChatGroq(api_key=groq_key, temperature=0, model="deepseek-r1-distill-llama-70b")
+llama_bot = ChatGroq(api_key=groq_key, temperature=0, model="meta-llama/llama-4-scout-17b-16e-instruct")
 
 
 
@@ -33,20 +33,20 @@ def gemini():
         user_input = request.form['user_input']
         chat_history.append({'type': 'user', 'text': user_input})
 
-        bot_response = google.invoke(user_input).content
+        bot_response = google_bot.invoke(user_input).content
         chat_history.append({'type': 'bot', 'text': f"Gemini Said: {bot_response}"})
     return render_template('gemini.html', chat_history=chat_history)
 
 @app.route('/deepseek', methods=['GET', 'POST'])
-def openai():
+def deepseek():
 
     if request.method == 'POST':
         user_input = request.form['user_input']
         chat_history.append({'type': 'user', 'text': user_input})
 
-        bot_response = deepseek.invoke(user_input).content
-        chat_history.append({'type': 'bot', 'text': f"DeepSeek said: {bot_response}"})
-    return render_template('deepseek.html', chat_history=chat_history)
+        bot_response = deep_bot.invoke(user_input).content
+        chat_history.append({'type': 'bot', 'text': f"DeepSeek said: {bot_response[17:]}"})
+    return render_template('deepseek.html', chat_history=chat_history) 
 
 @app.route('/llama', methods=['GET', 'POST'])
 def llama():
@@ -54,7 +54,7 @@ def llama():
         user_input = request.form['user_input']
         chat_history.append({'type': 'user', 'text': user_input})
 
-        bot_response = llama.invoke(user_input).content
+        bot_response = llama_bot.invoke(user_input).content
         chat_history.append({'type': 'bot', 'text': f"LLaMA Response: {bot_response}"})
     return render_template('llama.html', chat_history=chat_history)
 

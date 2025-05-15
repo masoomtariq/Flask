@@ -5,15 +5,15 @@
 {% block content %}
 <section class="chat-container deepseek">
     <h2>DeepSeek API Chat</h2>
-    <div class="chat-box-alt">
+    <div class="chat-box">
         {% for msg in chat_history %}
-            <div class="{{ 'user-bubble' if msg.type == 'user' else 'bot-bubble' }}">
-                <span>{{ msg.text }}</span>
+            <div class="message {{ msg.type }}">
+                <p>{{ msg.text }}</p>
             </div>
         {% endfor %}
     </div>
     <form method="POST" action="{{ url_for('deepseek') }}" class="input-form">
-        <input name="user_input" placeholder="Type to DeepSeek..."></input>
+        <input type = "text" name="user_input" placeholder="Type to DeepSeek..."></input>
         <button type="submit">➤</button>
     </form>
 </section>
